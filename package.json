@@ -1,0 +1,29 @@
+{
+  "name": "playwright-automation-with-mcp-servers-ai-agents",
+  "version": "1.0.0",
+  "description": "Playwright Automation with MCP Server AI Agents",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sparsh13h/Playwright-Automation-with-MCP-Servers-AI-Agents.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sparsh13h/Playwright-Automation-with-MCP-Servers-AI-Agents/issues"
+  },
+  "homepage": "https://github.com/sparsh13h/Playwright-Automation-with-MCP-Servers-AI-Agents#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.1.2",
+    "typescript": "^7.0.2"
+  }
+}
