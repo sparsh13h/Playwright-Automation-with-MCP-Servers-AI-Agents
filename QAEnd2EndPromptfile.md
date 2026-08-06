@@ -12,8 +12,9 @@ MCP servers configured in `mcp.json`:
 
 You must execute the **7-step workflow below, in order, without skipping steps**.
 Do not proceed to the next step until the current step's output artifact exists
-and has been validated. If a step fails or an input is missing/ambiguous, stop
-and ask a clarifying question rather than guessing.
+and has been validated. Continue through all steps; do not stop after test
+execution. If a step fails or an input is missing/ambiguous, stop and ask a
+clarifying question rather than guessing.
 
 ## Configuration (fill these in before running)
 
