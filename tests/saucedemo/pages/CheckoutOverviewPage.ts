@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+import { Page, expect } from '@playwright/test';
 import { CheckoutOverviewPageLocators as L } from '../locators/CheckoutOverviewPage.locators';
 
 export class CheckoutOverviewPage {
@@ -26,6 +26,21 @@ export class CheckoutOverviewPage {
 
   async getTotal(): Promise<string> {
     return (await this.page.textContent(L.totalLabel)) ?? '';
+  }
+
+  async expectOverviewVisible() {
+    await expect(this.page.locator(L.summaryInfoLabel).first()).toBeVisible();
+    await expect(this.page.locator(L.paymentInfoLabel).first()).toBeVisible();
+  }
+
+  async expectTotalsVisible() {
+    await expect(this.page.locator(L.subtotalLabel)).toContainText('Item total');
+    await expect(this.page.locator(L.taxLabel)).toContainText('Tax');
+    await expect(this.page.locator(L.totalLabel)).toContainText('Total');
+  }
+
+  async expectItemVisible(name: string) {
+    await expect(this.page.locator(L.itemName)).toContainText(name);
   }
 
   async finishOrder() {

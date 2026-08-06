@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+import { Page, expect } from '@playwright/test';
 import { CartPageLocators as L } from '../locators/CartPage.locators';
 
 export class CartPage {
@@ -22,6 +22,22 @@ export class CartPage {
 
   async getItemQuantity(): Promise<string> {
     return (await this.page.textContent(L.itemQuantity)) ?? '';
+  }
+
+  async expectCartItemVisible() {
+    await expect(this.page.locator(L.cartItem)).toBeVisible();
+  }
+
+  async expectCheckoutButtonEnabled() {
+    await expect(this.page.locator(L.checkoutButton)).toBeEnabled();
+  }
+
+  async expectItemNameContains(name: string) {
+    await expect(this.page.locator(L.itemName)).toContainText(name);
+  }
+
+  async expectItemPriceVisible() {
+    await expect(this.page.locator(L.itemPrice)).toBeVisible();
   }
 
   async proceedToCheckout() {

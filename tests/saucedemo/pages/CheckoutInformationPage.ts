@@ -22,6 +22,12 @@ export class CheckoutInformationPage {
     await this.page.click(L.cancelButton);
   }
 
+  async expectFormVisible() {
+    await expect(this.page.locator(L.firstNameInput)).toBeVisible();
+    await expect(this.page.locator(L.lastNameInput)).toBeVisible();
+    await expect(this.page.locator(L.postalCodeInput)).toBeVisible();
+  }
+
   async getErrorMessage(): Promise<string> {
     return (await this.page.textContent(L.errorMessage)) ?? '';
   }
