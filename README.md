@@ -16,6 +16,6 @@ Biggest takeaway: AI agents are only as good as the structure around them. A pla
 
 
 
-Sample Prompt- First create user story manually in user-stories folder then prompt -> 
+🔹 Sample Prompt- First create user story manually in user-stories folder then prompt -> 
 
 Implement user story Login.md as per details in QAEnd2EndPromptfile.md
