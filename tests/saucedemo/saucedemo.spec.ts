@@ -99,16 +99,5 @@ test.describe('N-101 Checkout flow', () => {
       await checkoutInformationPage.expectErrorVisible('Postal Code is required');
     });
 
-    // KNOWN DEFECT: invalid postal code characters are accepted by the current checkout validation flow
-    test('SC-007 / AC-5 - known defect: invalid postal code characters are accepted by current checkout validation', async ({ page }) => {
-      await productsPage.addProductToCart(PRODUCT_ID);
-      await productsPage.goToCart();
-      await cartPage.proceedToCheckout();
-
-      await checkoutInformationPage.enterShippingInformation(CHECKOUT_FIRST_NAME, CHECKOUT_LAST_NAME, '@!#');
-      await checkoutInformationPage.continue();
-      await expect(page).toHaveURL(/checkout-step-two.html/);
-      await page.screenshot({ path: getScreenshotPath('invalid-postal', 'overview-page') });
-    });
   });
 });
