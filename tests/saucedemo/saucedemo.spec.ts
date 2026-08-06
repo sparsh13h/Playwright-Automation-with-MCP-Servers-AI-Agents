@@ -6,17 +6,13 @@ import { CheckoutInformationPage } from './pages/CheckoutInformationPage';
 import { CheckoutOverviewPage } from './pages/CheckoutOverviewPage';
 import { ConfirmationPage } from './pages/ConfirmationPage';
 
-const USERNAME = process.env.SAUCEDEMO_USER;
-const PASSWORD = process.env.SAUCEDEMO_PASS;
+const USERNAME = process.env.SAUCEDEMO_USER ?? 'standard_user';
+const PASSWORD = process.env.SAUCEDEMO_PASS ?? 'secret_sauce';
 
 const CHECKOUT_FIRST_NAME = 'John';
 const CHECKOUT_LAST_NAME = 'Doe';
 const CHECKOUT_POSTAL_CODE = '90210';
 const PRODUCT_ID = 'sauce-labs-backpack';
-
-if (!USERNAME || !PASSWORD) {
-  throw new Error('Environment variables SAUCEDEMO_USER and SAUCEDEMO_PASS must be set before running tests.');
-}
 
 function getScreenshotPath(testName: string, step: string) {
   return `test-results/screenshots/N-101-${testName}-${step}.png`;
