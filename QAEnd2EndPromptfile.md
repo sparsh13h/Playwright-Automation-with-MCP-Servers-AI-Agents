@@ -22,7 +22,7 @@ clarifying question rather than guessing.
 |---|---|---|
 | `{TICKET_ID}` | `N-101` | User story / ticket identifier, used as commit & report prefix |
 | `{APP_SLUG}` | `checkout-app` | Short kebab-case app/feature name, used for folder & file naming |
-| `{USER_STORY_FILE}` | `user-stories/N-101-Checkout.md` | Path to the user story markdown |
+| `{USER_STORY_FILE}` | `docs/user-stories/N-101-Checkout.md` | Path to the user story markdown |
 | `{GIT_REPO_URL}` | `https://github.com/sparsh13h/Playwright-Automation-with-MCP-Servers-AI-Agents` | Target repository for Step 7 |
 
 ## Input
@@ -35,7 +35,7 @@ clarifying question rather than guessing.
 - Ticket ID: `{TICKET_ID}` — use this as the prefix for every generated artifact.
 - Folder structure to create/use:
   ```
-  /specs/
+  /docs/specs/
       {APP_SLUG}-test-plan.md
       {APP_SLUG}-exploratory-notes.md
   /tests/
@@ -97,14 +97,14 @@ clarifying question rather than guessing.
 3. For each scenario capture: `Scenario ID`, `AC reference`, `Title`, `Preconditions`, `Steps`, `Expected Result`, `Test data requirements`, `Priority (P1/P2/P3)`.
 4. Write the full plan to `/specs/{APP_SLUG}-test-plan.md` as a markdown table (grouped by category).
 
-**Output artifact:** `/specs/{APP_SLUG}-test-plan.md`
+**Output artifact:** `/docs/specs/{APP_SLUG}-test-plan.md`
 **Gate:** Do not proceed until this file exists and has at least one scenario per category per AC.
 
 ---
 
 ## Step 3 — Perform Exploratory Testing
 
-1. Read the test plan from `/specs/{APP_SLUG}-test-plan.md`.
+1. Read the test plan from `/docs/specs/{APP_SLUG}-test-plan.md`.
 2. Use the **`playwright`** MCP browser tool to actually launch and navigate the
    application at the URL from Step 1, logging in with the provided credentials.
 3. For every scenario in the plan:
@@ -116,7 +116,7 @@ clarifying question rather than guessing.
    - Note any scenario in the plan that is not actually reproducible (e.g. no boundary limit exists in the UI) — flag it, don't silently drop it.
 4. Record findings in `/specs/{APP_SLUG}-exploratory-notes.md`, mapped to each `Scenario ID`, including: test execution result, confirmed locator strategy per element, UI inconsistencies/bugs found, and screenshot references.
 
-**Output artifact:** `/specs/{APP_SLUG}-exploratory-notes.md` + `/test-results/screenshots/`
+**Output artifact:** `/docs/specs/{APP_SLUG}-exploratory-notes.md` + `/test-results/screenshots/`
 **Gate:** Do not proceed until every P1 scenario has a confirmed locator set and observed result.
 
 ---
@@ -124,8 +124,8 @@ clarifying question rather than guessing.
 ## Step 4 — Generate Automation Script
 
 Invoke the **`playwright-test-generator`** MCP tool, feeding it:
-- The test plan (`/specs/{APP_SLUG}-test-plan.md`) — for scenarios and steps
-- The exploratory notes (`/specs/{APP_SLUG}-exploratory-notes.md`) — for confirmed selectors and UI insights
+- The test plan (`/docs/specs/{APP_SLUG}-test-plan.md`) — for scenarios and steps
+- The exploratory notes (`/docs/specs/{APP_SLUG}-exploratory-notes.md`) — for confirmed selectors and UI insights
 
 Using insights from the manual exploratory testing:
 - Leverage the exact element selectors/locators that were successfully used in Step 3.

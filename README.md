@@ -26,7 +26,7 @@ I want to run a complete end-to-end QA workflow using natural language and MCP s
 
 STEP 1 - READ USER STORY:
 
-First, read the user story from: user-stories/Login.md
+First, read the user story from: docs/user-stories/Login.md
 
 Provide a brief summary of what needs to be tested.
 
@@ -40,17 +40,17 @@ the user story. Explore the application URL from the user story and cover all
 
 acceptance criteria, including happy path, positive, negative, boundary, navigation
 
-flow, and UI element validation scenarios. Save it as: specs/login-app-test-plan.md
+flow, and UI element validation scenarios. Save it as: docs/specs/login-app-test-plan.md
 
 
 
 STEP 3 - EXPLORATORY TESTING:
 
-Read the test plan from specs/login-app-test-plan.md and use Playwright MCP browser
+Read the test plan from docs/specs/login-app-test-plan.md and use Playwright MCP browser
 
 tools to manually execute each test scenario. Document findings with screenshots and
 
-note any issues discovered. Save notes as: specs/login-app-exploratory-notes.md
+note any issues discovered. Save notes as: docs/specs/login-app-exploratory-notes.md
 
 
 
@@ -66,13 +66,13 @@ and spec files that only call page-class methods (no raw selectors in specs).
 
 Leverage the element selectors and insights discovered during manual testing.
 
-Save scripts in: tests/login-app/ (locators/, pages/, login-app.spec.ts).
+Save scripts in: tests/saucedemo/ (locators/, pages/, login.spec.ts, checkout.spec.ts).
 
 
 
 STEP 5 - EXECUTE AND HEAL TESTS:
 
-Run all automation scripts from tests/login-app/. Use the playwright-test-healer
+Run all automation scripts from tests/saucedemo/. Use the playwright-test-healer
 
 agent to identify and auto-heal any failing tests, fixing each issue in the correct
 
